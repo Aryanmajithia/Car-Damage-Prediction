@@ -33,3 +33,8 @@ streamlit run app.py
 ```
 
 Set backend URL in app as `http://127.0.0.1:8000/predict` (default already set).
+
+## Streamlit Cloud Deployment
+Use the root app entrypoint to avoid path issues with spaces in folder names:
+- Main file path: `app.py`
+- Requirements file: `requirements.txt`
