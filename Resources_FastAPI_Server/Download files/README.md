@@ -1,7 +1,16 @@
 ### Vehicle Damage Detection Backend Server
 
-This code is for FastAPI server that takes car image as an input and predicts if it has a damage or not.
-It has a single end point called `predict` which takes input file and returns a response in this format,
+This FastAPI backend accepts a car image and returns the predicted damage class.
+
+## Endpoints
+- `GET /health`
+```commandline
+{
+    "status": "ok"
+}
+```
+
+- `POST /predict` (form-data field name: `file`)
 ```commandline
 {
     "prediction": "Rear Breakage"
@@ -20,12 +29,17 @@ It has a single end point called `predict` which takes input file and returns a 
 9. The accuracy on the validation set was around 80%
 
 ### Set Up
+1. Install dependencies:
+   ```commandline
+   pip install -r requirements.txt
+   ```
 
-1. To get started, first install the dependencies using:
-    ```commandline
-     pip install -r requirements.txt
-    ```
-   
-2. Run the fast api server:
+2. Run FastAPI server:
    ```commandline
    fastapi dev server.py
+   ```
+
+3. Verify server:
+   ```commandline
+   curl http://127.0.0.1:8000/health
+   ```
